@@ -5,23 +5,30 @@ include "conecta.php";
 if(isset($_GET["id"])){
     $id = $_GET["id"];
 
-    $sql = $conn->query("SELECT * FROM usuarios WHERE id = $id");
-    $usuario = $sql->fetchAll(PDO::FETCH_ASSOC);
+    //$sql = $conn->query("SELECT * FROM usuarios WHERE id = $id");
+    $sql = "SELECT * FROM usuarios WHERE id = :id";
+    $stmt = $conn->prepare($sql);
+    $stmt->bindParam(":id", $_GET["id"]);
+    $stmt->execute();
+    $usuario = $stmt->fetch();
     //print_r($usuario);
     print_r("<br>");
     ?>
         <form action="" method="post" enctype="multipart/form-data">
         <label for="nombre">Nombre: </label>
-        <input type="text" name="nombre" id="nombre" value="<?=$usuario[0]["nombre"]?>">
+        <input type="text" name="nombre" id="nombre" value="<?=$usuario["nombre"]?>">
         <label for="edad">Apellidos: </label>
-        <input type="text" name="apellidos" id="apellidos" value="<?=$usuario[0]["apellidos"]?>">
+        <input type="text" name="apellidos" id="apellidos" value="<?=$usuario["apellidos"]?>">
         <label for="dni">DNI: </label>
-        <input type="text" name="dni" id="dni" value="<?=$usuario[0]["dni"]?>">
-        <input type="text" name="id" id="id" value="<?=$usuario[0]["id"]?>" hidden>
+        <input type="text" name="dni" id="dni" value="<?=$usuario["dni"]?>">
+        <input type="text" name="id" id="id" value="<?=$usuario["id"]?>" hidden>
         <input type="submit" name="actualizar" value="Actualizar Usuario"></input>
     </form>
 
     <?php
+} else{
+    print_r("Error. No se ha proporcionado un ID");
+    exit(0);
 }
 
 if(isset($_POST["actualizar"])){
