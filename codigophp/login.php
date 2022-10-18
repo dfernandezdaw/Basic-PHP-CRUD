@@ -17,6 +17,7 @@ if(isset($_POST["usuario"])){
 
     if($data){
         $_SESSION["usuario"] = $data["usuario"];
+        $_SESSION["nombre"] = $data["nombre"];
         header("Location: index.php");
     }else{
         echo "Usuario o contraseña inválido";
