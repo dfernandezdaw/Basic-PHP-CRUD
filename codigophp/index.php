@@ -21,7 +21,7 @@ include("conecta.php");
         </a>
         <div class="">
             <?php
-            $nombre = $_SESSION["nombre"];
+            $nombre = $_SESSION["nombre"]; //Hacemos uso del nombre guardado en la sesión
             print($nombre);
             ?>
             <a href="salir.php"><i class="fa-solid fa-power-off logout"></i></a>
@@ -31,6 +31,7 @@ include("conecta.php");
         <?php include("mensaje.php");?>
         <div>
             <h4>Usuarios
+            <!-- Bootstrap: mb-2 (margin-bottom) float-end (colocar el botón a la izquierda del div)-->
             <a href="registro.php" class="btn btn-primary float-end mb-2">Añadir Usuario</a>
             </h4>
         </div>
