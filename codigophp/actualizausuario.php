@@ -1,5 +1,5 @@
 <?php
-
+    session_start();
 include "conecta.php";
 
 if(isset($_GET["id"])){
@@ -40,9 +40,11 @@ if(isset($_POST["actualizar"])){
     $stmt -> bindParam(":id", $_POST["id"]);
 
     if($stmt->execute()){
-        print_r("Usuario actualizado correctamente");
+        $_SESSION["mensaje"] = "Usuario actualizado correctamente";
+        header("Location: index.php");
     }else{
-        print_r("Error al actualizar usuario");
+        $_SESSION["mensaje"] = "Error al actualizar el usuario";
+        header("Location: index.php");
     }
 }
 

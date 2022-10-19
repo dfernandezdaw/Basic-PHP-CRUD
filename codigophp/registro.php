@@ -15,11 +15,13 @@ if(isset($_POST["nombre"])){
         exit(0);
     }
 
-    $sql = "INSERT INTO usuarios(nombre, apellidos, dni) VALUES (:nombre, :apellidos, :dni)";
+    $sql = "INSERT INTO usuarios(nombre, apellidos, dni, usuario, password) VALUES (:nombre, :apellidos, :dni, :usuario, :password)";
     $stmt = $conn->prepare($sql);
     $stmt -> bindParam(":nombre", $_POST["nombre"]);
     $stmt -> bindParam(":apellidos", $_POST["apellidos"]);
     $stmt -> bindParam(":dni", $_POST["dni"]);
+    $stmt -> bindParam(":usuario", $_POST["usuario"]);
+    $stmt -> bindParam(":password", $_POST["password"]);
 
     if($stmt->execute()){
         print_r("Usuario añadido correctamente");
@@ -46,6 +48,10 @@ if(isset($_POST["nombre"])){
         <input type="text" name="apellidos" id="apellidos">
         <label for="dni">DNI: </label>
         <input type="text" name="dni" id="dni">
+        <label for="usuario">Usuario: </label>
+        <input type="text" name="usuario" id="usuario">
+        <label for="password">Contraseña: </label>
+        <input type="text" name="password" id="password">
         <button type="submit" name="enviar">Enviar</button>
     </form>
 </body>

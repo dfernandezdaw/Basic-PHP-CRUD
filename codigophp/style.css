@@ -1,0 +1,9 @@
+.disabled{
+    color: black;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+.logout{
+    color: black;
+}
