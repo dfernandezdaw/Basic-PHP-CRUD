@@ -1,5 +1,5 @@
-<!-- Archivo que muestra el mensaje que se captura en $_SESSION haciendo uso de Bootstrap-->
 <?php
+//Archivo que muestra el mensaje que se captura en $_SESSION haciendo uso de Bootstrap
 if(isset($_SESSION["mensaje"])) :
  ?>
 
