@@ -50,6 +50,7 @@ include("conecta.php");
                 </tr>
             </thead>
             <tbody>
+                <!-- Generamos la tabla con PHP -->
                 <?php
                     $usuarios = $conn->query("SELECT * FROM usuarios");
                     $usuarios_asociativo = $usuarios->fetchAll(PDO::FETCH_ASSOC);
@@ -77,7 +78,7 @@ include("conecta.php");
         </table>
         <div>
             <h4>Mascotas
-            <a href="#" class="btn btn-primary float-end mb-2">Añadir Mascota</a>
+            <a href="registromascota.php" class="btn btn-primary float-end mb-2">Añadir Mascota</a>
             </h4>
         </div>
         <table class='table table-light table-striped'>
@@ -108,8 +109,8 @@ include("conecta.php");
                     }
                     print("</td>");
                     print("<td>");
-                    print("<a href='actualizausuario.php?id=".$mascota["id"]."'><i class='fa-solid fa-pen-to-square px-1'></i></a>");
-                    print("<a href='borrasuario.php?id=".$mascota["id"]."'><i class='fa-solid fa-trash px-1'></i></a>");
+                    print("<a href='modificamascota.php?id=".$mascota["id"]."'><i class='fa-solid fa-pen-to-square px-1'></i></a>");
+                    print("<a href='borramascota.php?id=".$mascota["id"]."'><i class='fa-solid fa-trash px-1'></i></a>");
                     print("</td>");
                 } 
                 ?>
