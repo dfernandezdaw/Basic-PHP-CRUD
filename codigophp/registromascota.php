@@ -62,7 +62,7 @@ car-body: Contenido del recuadro, en este caso un formulario
                     <label for="edad" class="form-label">Raza: </label>
                     <input type="text" name="tipo" id="tipo" class="form-control mb-3">
                     <div class="d-flex justify-content-center mt-3">
-                        <button class="btn btn-primary" type="submit" name="enviar">Registrarse</button>
+                        <button class="btn btn-primary" type="submit" name="enviar">Registrar mascota</button>
                     </div>
                 </form>
             </div>
